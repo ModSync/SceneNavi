@@ -39,11 +39,11 @@ namespace SceneNavi.HeaderCommands
                 foreach (HeaderCommands.Waypoints.Waypoint wp in path.Points)
                 {
                     byte[] bytes = BitConverter.GetBytes(Endian.SwapInt16((short)wp.X));
-                    Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wp.Address & 0xFFFFFF)), bytes.Length);
+                    System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wp.Address & 0xFFFFFF)), bytes.Length);
                     bytes = BitConverter.GetBytes(Endian.SwapInt16((short)wp.Y));
-                    Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wp.Address & 0xFFFFFF) + 2), bytes.Length);
+                    System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wp.Address & 0xFFFFFF) + 2), bytes.Length);
                     bytes = BitConverter.GetBytes(Endian.SwapInt16((short)wp.Z));
-                    Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wp.Address & 0xFFFFFF) + 4), bytes.Length);
+                    System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wp.Address & 0xFFFFFF) + 4), bytes.Length);
                 }
             }
         }

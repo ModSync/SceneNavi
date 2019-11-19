@@ -29,7 +29,7 @@ namespace SceneNavi.HeaderCommands
         {
             foreach (HeaderCommands.Actors.Entry ae in this.ActorList)
             {
-                Buffer.BlockCopy(ae.RawData, 0, databuf, (int)(baseadr + (ae.Address & 0xFFFFFF)), ae.RawData.Length);
+                System.Buffer.BlockCopy(ae.RawData, 0, databuf, (int)(baseadr + (ae.Address & 0xFFFFFF)), ae.RawData.Length);
             }
         }
 
@@ -152,7 +152,7 @@ namespace SceneNavi.HeaderCommands
                 RawData = new byte[16];
                 byte[] segdata = (byte[])ROM.SegmentMapping[(byte)(adr >> 24)];
                 if (segdata == null) return;
-                Buffer.BlockCopy(segdata, (int)(adr & 0xFFFFFF), RawData, 0, RawData.Length);
+                System.Buffer.BlockCopy(segdata, (int)(adr & 0xFFFFFF), RawData, 0, RawData.Length);
 
                 /* Find definition, internal name */
                 RefreshVariables();

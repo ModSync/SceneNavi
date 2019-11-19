@@ -228,26 +228,26 @@ namespace SceneNavi.SimpleF3DEX2
             {
                 case 0x0448:
                 case 0x055A:
-                    GL.BlendFunc(BlendingFactorSrc.One, BlendingFactorDest.One);
+                    GL.BlendFunc(BlendingFactor.One, BlendingFactor.One);
                     break;
                 case 0x0382:
                 case 0x0091:
                 case 0x0C08:
                 case 0x0F0A:
                 case 0x0302:
-                    GL.BlendFunc(BlendingFactorSrc.One, BlendingFactorDest.Zero);
+                    GL.BlendFunc(BlendingFactor.One, BlendingFactor.Zero);
                     break;
                 case 0xAF50:
                 case 0x0F5A:
                 case 0x0FA5:
                 case 0x5055:
-                    GL.BlendFunc(BlendingFactorSrc.Zero, BlendingFactorDest.One);
+                    GL.BlendFunc(BlendingFactor.Zero, BlendingFactor.One);
                     break;
                 case 0x5F50:
-                    GL.BlendFunc(BlendingFactorSrc.Zero, BlendingFactorDest.OneMinusSrcAlpha);
+                    GL.BlendFunc(BlendingFactor.Zero, BlendingFactor.OneMinusSrcAlpha);
                     break;
                 default:
-                    GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
+                    GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
                     break;
             }
         }

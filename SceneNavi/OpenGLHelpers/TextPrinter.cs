@@ -296,7 +296,7 @@ namespace SceneNavi.OpenGLHelpers
                 GL.BindTexture(TextureTarget.Texture2D, TextureGLID);
                 GL.Disable(EnableCap.Lighting);
                 GL.Enable(EnableCap.Blend);
-                GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
+                GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
                 GL.Enable(EnableCap.AlphaTest);
 
                 GL.EnableClientState(ArrayCap.TextureCoordArray);

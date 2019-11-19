@@ -50,7 +50,7 @@ namespace SceneNavi.OpenGLHelpers
                     if (Initialization.SupportsFunction("glCreateShader")) GL.UseProgram(0);
                     GL.Disable(EnableCap.CullFace);
                     GL.Enable(EnableCap.Blend);
-                    GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
+                    GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
                     GL.DepthRange(0.0, 0.99995);
 
                     /* White poly */

@@ -107,17 +107,17 @@ namespace SceneNavi.HeaderCommands
             {
                 /* Polygon type */
                 byte[] bytes = BitConverter.GetBytes(Endian.SwapUInt16(poly.PolygonType));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF)), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF)), bytes.Length);
 
                 /* Normal stuff etc. */
                 bytes = BitConverter.GetBytes(Endian.SwapInt16(poly.NormalXDirection));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF) + 0x8), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF) + 0x8), bytes.Length);
                 bytes = BitConverter.GetBytes(Endian.SwapInt16(poly.NormalYDirection));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF) + 0xA), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF) + 0xA), bytes.Length);
                 bytes = BitConverter.GetBytes(Endian.SwapInt16(poly.NormalZDirection));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF) + 0xC), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF) + 0xC), bytes.Length);
                 bytes = BitConverter.GetBytes(Endian.SwapInt16(poly.CollisionPlaneDistFromOrigin));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF) + 0xE), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (poly.Address & 0xFFFFFF) + 0xE), bytes.Length);
 
                 /* TODO vertex IDs???  even allow editing of those?? */
             }
@@ -126,28 +126,28 @@ namespace SceneNavi.HeaderCommands
             {
                 /* Just get & save raw data; should be enough */
                 byte[] bytes = BitConverter.GetBytes(Endian.SwapUInt64(ptype.Raw));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (ptype.Address & 0xFFFFFF)), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (ptype.Address & 0xFFFFFF)), bytes.Length);
             }
 
             foreach (HeaderCommands.Collision.Waterbox wb in this.Waterboxes)
             {
                 /* Position */
                 byte[] bytes = BitConverter.GetBytes(Endian.SwapInt16(Convert.ToInt16(wb.Position.X)));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x0), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x0), bytes.Length);
                 bytes = BitConverter.GetBytes(Endian.SwapInt16(Convert.ToInt16(wb.Position.Y)));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x2), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x2), bytes.Length);
                 bytes = BitConverter.GetBytes(Endian.SwapInt16(Convert.ToInt16(wb.Position.Z)));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x4), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x4), bytes.Length);
 
                 /* Size */
                 bytes = BitConverter.GetBytes(Endian.SwapInt16(Convert.ToInt16(wb.SizeXZ.X)));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x6), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x6), bytes.Length);
                 bytes = BitConverter.GetBytes(Endian.SwapInt16(Convert.ToInt16(wb.SizeXZ.Y)));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x8), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0x8), bytes.Length);
 
                 /* Property thingy (room number, whatever else) */
                 bytes = BitConverter.GetBytes(Endian.SwapUInt32(wb.RoomPropRaw));
-                Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0xC), bytes.Length);
+                System.Buffer.BlockCopy(bytes, 0, databuf, (int)(baseadr + (wb.Address & 0xFFFFFF) + 0xC), bytes.Length);
             }
         }
 

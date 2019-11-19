@@ -118,7 +118,7 @@ namespace SceneNavi.OpenGLHelpers
             GL.CullFace(CullFaceMode.Back);
 
             GL.Enable(EnableCap.Blend);
-            GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
         }
 
         public static void CreateViewportAndProjection(ProjectionTypes projectionType, Rectangle clientRectangle, float near, float far)

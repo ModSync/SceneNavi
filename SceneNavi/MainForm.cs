@@ -547,7 +547,7 @@ namespace SceneNavi
                 foreach (EntranceTableEntry ete in rom.Entrances) ete.SaveTableEntry();
 
                 /* Copy code data */
-                Buffer.BlockCopy(rom.CodeData, 0, rom.Data, (int)rom.Code.PStart, rom.CodeData.Length);
+                System.Buffer.BlockCopy(rom.CodeData, 0, rom.Data, (int)rom.Code.PStart, rom.CodeData.Length);
 
                 /* Write to file */
                 BinaryWriter bw = new BinaryWriter(File.Open(rom.Filename, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite));
@@ -1568,7 +1568,7 @@ namespace SceneNavi
             GL.Enable(EnableCap.Blend);
             if (supportsGenProgramsARB) GL.Disable((EnableCap)All.FragmentProgram);
             if (supportsCreateShader) GL.UseProgram(0);
-            GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
+            GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
 
             RenderInit(customGLControl.ClientRectangle, Color.Black);
             foreach (HeaderCommands.IPickableObject obj in objlist)
